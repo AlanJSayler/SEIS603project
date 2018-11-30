@@ -1,9 +1,12 @@
+#Alan
+#Ade
+#Saritha
 from urllib import request
 from bs4 import BeautifulSoup
 
 
-#Scrapes the requested url and returns a list of all text found within the specified
-#span or div class
+#return a list of strings corresponding to the type and class in a document
+#given by url
 def scrape(url,getType,getClass):
     with request.urlopen(url) as response:
         html = response.read()
@@ -12,6 +15,10 @@ def scrape(url,getType,getClass):
     for field_content in soup.findAll(getType, {'class' : getClass}):
         results.append(field_content.text.strip())
     return results
+
+
+
+
 
 
 
